@@ -18,11 +18,32 @@ export class DbService {
     try {
       return await this.databases.listDocuments(
         config.appWriteDatabaseId,
-        config.appWriteCollectionId,
+        config.appWriteQuestionCollectionId,
         queries
       );
     } catch (error) {
       console.log("Appwrite service :: getQuestions() :: ", error);
+      return false;
+    }
+  }
+
+  async createQuiz({ quizTitle, questions, createdBy }) {
+    try {
+      const createdAt = new Date().toISOString(); // Get the current timestamp in ISO format
+
+      return await this.databases.createDocument(
+        config.appWriteDatabaseId,
+        config.appWriteQuizCollectionId, // This should be your quizzes collection ID
+        ID.unique(),
+        {
+          quizTitle,
+          questions,
+          createdBy,
+          createdAt,
+        }
+      );
+    } catch (error) {
+      console.log("Appwrite service :: createQuiz() :: ", error);
       return false;
     }
   }
@@ -39,7 +60,7 @@ export class DbService {
     try {
       return await this.databases.createDocument(
         config.appWriteDatabaseId,
-        config.appWriteCollectionId,
+        config.appWriteQuestionCollectionId,
         ID.unique(),
         {
           title,
@@ -60,7 +81,7 @@ export class DbService {
     try {
       await this.databases.deleteDocument(
         config.appWriteDatabaseId,
-        config.appWriteCollectionId,
+        config.appWriteQuestionCollectionId,
         docId
       );
       return true;

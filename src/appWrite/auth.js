@@ -36,7 +36,7 @@ export class AuthService {
     try {
       return await this.account.createEmailPasswordSession(email, password);
     } catch (error) {
-      console.error("An error occurred:", error);
+      console.error("Appwrite service :: login() ::", error);
       throw error;
     }
   }
@@ -48,10 +48,22 @@ export class AuthService {
     }
     return null;
   }
+  async getCurrentUserData() {
+    try {
+      const currentUser = await this.account.get();
+      return {
+        email: currentUser.email,
+        id: currentUser.$id,
+      };
+    } catch (error) {
+      console.log("Appwrite service :: getCurrentUser() :: ", error);
+    }
+    return null;
+  }
 
   async logOut() {
     try {
-      await this.account.deleteSessions();
+      return await this.account.deleteSessions();
     } catch (error) {
       console.log("Appwrite service :: logOut() :: ", error);
     }
