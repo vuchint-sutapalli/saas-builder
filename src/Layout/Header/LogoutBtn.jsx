@@ -4,11 +4,12 @@ import { authState } from "../../Atoms";
 import authService from "../../appWrite/auth";
 import { Button } from "@/components/ui/button";
 
-authService;
 const LogoutBtn = () => {
   const setAuth = useSetRecoilState(authState);
 
   const logOutHandler = () => {
+    console.log("logging out");
+
     authService.logOut().then(() => {
       setAuth({
         status: false,
