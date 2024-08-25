@@ -30,8 +30,7 @@ const AppLayout = () => {
         <Outlet />
       </main>
       <Toaster />
-
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };

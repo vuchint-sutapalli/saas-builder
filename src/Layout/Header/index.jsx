@@ -28,6 +28,16 @@ const Header = () => {
       active: authStatus,
     },
     {
+      name: "create New Quiz",
+      navTo: "/create-quiz",
+      active: authStatus,
+    },
+    {
+      name: "All Quizzes",
+      navTo: "/all-quizzes",
+      active: authStatus,
+    },
+    {
       name: "Login",
       navTo: "/login",
       active: !authStatus,

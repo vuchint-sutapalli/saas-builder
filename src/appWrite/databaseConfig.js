@@ -27,6 +27,18 @@ export class DbService {
     }
   }
 
+  async getQuizzes() {
+    try {
+      return await this.databases.listDocuments(
+        config.appWriteDatabaseId,
+        config.appWriteQuizCollectionId
+      );
+    } catch (error) {
+      console.log("Appwrite service :: getQuizzes() :: ", error);
+      return false;
+    }
+  }
+
   async createQuiz({ quizTitle, questions, createdBy }) {
     try {
       const createdAt = new Date().toISOString(); // Get the current timestamp in ISO format

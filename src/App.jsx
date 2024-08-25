@@ -11,6 +11,8 @@ import AddQuestion from "./Pages/AddQuestion.jsx";
 import EditQuestion from "./Pages/EditQuestion.jsx";
 import Question from "./Pages/Question.jsx";
 import QuizCreator from "./Pages/QuizCreator/index.jsx";
+import QuizList from "./Pages/QuizList.jsx";
+import QuestionList from "./Pages/QuestionList.jsx";
 
 const router = createBrowserRouter([
   {
@@ -37,13 +39,30 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/all-questions",
+        path: "/create-quiz",
         element: (
           <Protected authentication={true}>
             <QuizCreator />
           </Protected>
         ),
       },
+      {
+        path: "/all-quizzes",
+        element: (
+          <Protected authentication={true}>
+            <QuizList />
+          </Protected>
+        ),
+      },
+      {
+        path: "/all-questions",
+        element: (
+          <Protected authentication={true}>
+            <QuestionList />
+          </Protected>
+        ),
+      },
+
       {
         path: "/create-question",
         element: (
