@@ -5,7 +5,6 @@ import LandingPage from "./Pages/Landing/index.jsx";
 import Login from "./Pages/Login.jsx";
 import Protected from "./components/Protected.jsx";
 import SignUp from "./Pages/SignUp.jsx";
-QuizCreator;
 // import AllQuestions from "./Pages/QuizCreator/AllQuestions.jsx";
 import AddQuestion from "./Pages/AddQuestion.jsx";
 import EditQuestion from "./Pages/EditQuestion.jsx";

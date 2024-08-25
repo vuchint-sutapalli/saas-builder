@@ -2,6 +2,7 @@ import LogoutBtn from "./LogoutBtn";
 import { Link, useNavigate } from "react-router-dom";
 import { Camera } from "lucide-react";
 import { Button } from "@/components/ui/button.jsx";
+
 import { useRecoilValue } from "recoil";
 import { authState } from "../../Atoms";
 
@@ -76,16 +77,17 @@ const Header = () => {
             )}
           </ul>
           {authStatus ? (
-            <div>
-              <Button
-                variant="destructive"
-                className="bg-red-600 hover:bg-red-700 transition duration-200"
-                onClick={() => navigate("/logout")}
-              >
-                Logout
-              </Button>
-            </div>
-          ) : null}
+            <LogoutBtn />
+          ) : // <div>
+          //   <Button
+          //     variant="destructive"
+          //     className="bg-red-600 hover:bg-red-700 transition duration-200"
+          //     onClick={() => navigate("/logout")}
+          //   >
+          //     Logout
+          //   </Button>
+          // </div>
+          null}
         </nav>
 
         {/* Right: Logout Button */}
